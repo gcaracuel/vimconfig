@@ -176,3 +176,6 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 " Now we just enable the menu and pydoc preview to get the most useful 
 set completeopt=menuone,longest,preview
+
+" gundo
+nnoremap <F5> :GundoToggle<CR>
