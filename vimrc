@@ -38,7 +38,7 @@ set undodir=~/.vim/tmp
 set undolevels=1000
 set undoreload=10000
 " auto cleanup on startup:
-silent execute '!rm ~/.vim/tmp/*'
+silent execute '!rm ~/.vim/tmp/* &> /dev/null'
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -276,16 +276,16 @@ let g:SuperTabDefaultCompletionType = "context"
 " Better navigating through omnicomplete option list
 " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
 "" set completeopt=longest,menuone
-" "function! OmniPopup(action)
-" "if pumvisible()
-" "    if a:action == 'j'
-" "    return "\<C-N>"
-" "    elseif a:action == 'k'
-" "    return "\<C-P>"
-" "    endif
-" "endif
-" "return a:action
-" "endfunction
+function! OmniPopup(action)
+if pumvisible()
+    if a:action == 'j'
+    return "\<C-N>"
+    elseif a:action == 'k'
+    return "\<C-P>"
+    endif
+endif
+return a:action
+endfunction
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
@@ -327,8 +327,7 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 
 """"""""""""""""""""""""""""""
 " airline
-" """"""""""""""""""""""""""""""
-" let g:airline_theme             = 'powerlineish'
+"""""""""""""""""""""""""""""""
 " let g:airline_enable_branch     = 1
 " let g:airline_enable_syntastic  = 1
 "
@@ -353,5 +352,9 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
-
-" Bash
+" omnicompletion : words
+inoremap <leader>, <C-x><C-o>
+" omnicompletion : filenames
+inoremap <leader>: <C-x><C-f>
+" omnicompletion : lines
+inoremap <leader>= <C-x><C-l>
