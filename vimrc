@@ -26,3 +26,8 @@ let g:syntastic_loc_list_height=5
 " Supertab completion options
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
+" Now we just enable the menu and pydoc preview to get the most useful 
+set completeopt=menuone,longest,preview
+
+" Let pydoc open in new window / <leader>pw
+" let g:pydoc_open_cmd = 'tabnew' 
