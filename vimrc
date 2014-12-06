@@ -132,10 +132,8 @@ set noswapfile
 " mkdir -p ~/.vim/autoload ~/.vim/bundle
 " curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
+let g:pathogen_disabled = ["vim-autoclose"]
 call pathogen#infect()
-
-
-
 
 " Execute flake8 every save of a python  file / default key F7
 autocmd BufWritePost *.py call Flake8()
@@ -160,16 +158,16 @@ let g:SuperTabDefaultCompletionType = "context"
 " Better navigating through omnicomplete option list
 " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
 "" set completeopt=longest,menuone
-function! OmniPopup(action)
-if pumvisible()
-    if a:action == 'j'
-    return "\<C-N>"
-    elseif a:action == 'k'
-    return "\<C-P>"
-    endif
-endif
-return a:action
-endfunction
+" "function! OmniPopup(action)
+" "if pumvisible()
+" "    if a:action == 'j'
+" "    return "\<C-N>"
+" "    elseif a:action == 'k'
+" "    return "\<C-P>"
+" "    endif
+" "endif
+" "return a:action
+" "endfunction
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
@@ -179,3 +177,9 @@ set completeopt=menuone,longest,preview
 
 " gundo
 nnoremap <F5> :GundoToggle<CR>
+
+" ctrlP options
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
+nnoremap <leader>b :CtrlPBuffer<CR>
