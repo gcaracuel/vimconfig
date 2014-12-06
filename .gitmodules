@@ -8,3 +8,7 @@
 [submodule "bundle/vim-autopep8"]
 	path = bundle/vim-autopep8
 	url = https://github.com/tell-k/vim-autopep8.git
+	ignore = dirty
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

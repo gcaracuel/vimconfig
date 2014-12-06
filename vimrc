@@ -15,3 +15,10 @@ autocmd BufWritePost *.py call Flake8()
 
 " Autopep8 default key F8
 " autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
+
+" Statusbar tricks
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
