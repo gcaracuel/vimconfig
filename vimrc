@@ -55,7 +55,6 @@ function! HasPaste()
     en
     return ''
 endfunction
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
@@ -226,7 +225,7 @@ set lcs=tab:▸\ ,trail:· ",eol:¬,nbsp:_ "everything else
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*~,*.pyc,.git\*,.hg\*,.svn\*     " Linux/MacOSX
 
 " Height of the command bar
-set cmdheight=2
+" set cmdheight=2
 
 " Treat .json files as .js
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
@@ -321,3 +320,36 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "1"
 let g:jedi#popup_on_dot = 0
+
+
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ %{fugitive\#statusline()} 
+
+
+""""""""""""""""""""""""""""""
+" airline
+" """"""""""""""""""""""""""""""
+" let g:airline_theme             = 'powerlineish'
+" let g:airline_enable_branch     = 1
+" let g:airline_enable_syntastic  = 1
+"
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
