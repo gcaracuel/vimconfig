@@ -24,8 +24,8 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "/home/ccota/.vim/bundle/gundo"]
-	path = /home/ccota/.vim/bundle/gundo
+[submodule "bundle/gundo"]
+	path = bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
 [submodule "bundle/ctrlp.vim"]
 	path = bundle/ctrlp.vim
