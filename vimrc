@@ -9,3 +9,9 @@ set expandtab     " insert spaces when hitting TABs
 set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
 set shiftround    " round indent to multiple of 'shiftwidth'
 set autoindent    " align the new line indent with the previous line
+
+" Execute flake8 every save of a python  file / default key F7
+autocmd BufWritePost *.py call Flake8()
+
+" Autopep8 default key F8
+" autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
