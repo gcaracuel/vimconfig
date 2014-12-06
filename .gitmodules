@@ -5,6 +5,6 @@
 [submodule "bundle/vim-flake8"]
 	path = bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8.git
-[submodule "bundle/vim-autoopep8"]
-	path = bundle/vim-autoopep8
+[submodule "bundle/vim-autopep8"]
+	path = bundle/vim-autopep8
 	url = https://github.com/tell-k/vim-autopep8.git
