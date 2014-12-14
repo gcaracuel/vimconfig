@@ -254,7 +254,7 @@ let g:pathogen_disabled = ["vim-autoclose"]
 call pathogen#infect()
 
 " Execute flake8 every save of a python  file / default key F7
-autocmd BufWritePost *.py call Flake8()
+" autocmd BufWritePost *.py call Flake8()
 
 " Autopep8 default key F8
 " autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
@@ -277,14 +277,14 @@ let g:SuperTabDefaultCompletionType = "context"
 " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
 "" set completeopt=longest,menuone
 function! OmniPopup(action)
-if pumvisible()
-    if a:action == 'j'
-    return "\<C-N>"
-    elseif a:action == 'k'
-    return "\<C-P>"
+    if pumvisible()
+        if a:action == 'j'
+        return "\<C-N>"
+        elseif a:action == 'k'
+        return "\<C-P>"
+        endif
     endif
-endif
-return a:action
+    return a:action
 endfunction
 
 "inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
@@ -375,7 +375,7 @@ let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_min_syntax_length = 4
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Enable heavy features.
