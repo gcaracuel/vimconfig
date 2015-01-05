@@ -111,8 +111,8 @@ nmap <leader>w :w!<cr>
 set so=7
 
 " Mouse and backspace
-set mouse=a  " on OSX press ALT and click
-"" set bs=2     " make backspace behave like normal again
+" set mouse=a  " on OSX press ALT and click
+" set bs=2     " make backspace behave like normal again
 
 " Bind nohl
 " Removes highlight of your last search
@@ -267,7 +267,7 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
 
 " Supertab completion options
-au FileType python set omnifunc=pythoncomplete#Complete
+" au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 
 " Let pydoc open in new window / <leader>pw
@@ -377,6 +377,7 @@ let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 4
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplcache_enable_cursor_hold_i = 1
 
 " Enable heavy features.
 " Use camel case completion.
@@ -457,3 +458,9 @@ let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
+" Insert single char
+function! RepeatChar(char, count)
+  return repeat(a:char, a:count)
+endfunction
+nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
+nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
