@@ -2,11 +2,14 @@
 
 ## Installation:
 
+    cp -fr ~./vim ~/.vim.backup
+    rm -fr ~./vim
     git clone git://github.com/camilocot/vimconfig.git ~/.vim
 
 ### Invoke install 
 
-    pip install invoke
+    sudo pip install invoke
+    cd ~/.vim
     invoke build
 
 ### Manual install 
