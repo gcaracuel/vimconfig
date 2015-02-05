@@ -2,8 +2,7 @@
 
 ## Installation:
 
-    cp -fr ~./vim ~/.vim.backup
-    rm -fr ~./vim
+    mv ~./vim ~/.vim.backup
     git clone git://github.com/camilocot/vimconfig.git ~/.vim
 
 ### Invoke install 
